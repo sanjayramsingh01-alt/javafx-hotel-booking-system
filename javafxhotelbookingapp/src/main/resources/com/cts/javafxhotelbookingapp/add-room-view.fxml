@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<!--
+Purpose: Add room screen for the Hotel Booking System.
+Authors: Andrea Goorachan, Sanjay Ramsingh
+Version: v1.0
+Date: 2/24/2026
+-->
+
+<BorderPane prefHeight="700.0" prefWidth="1100.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.cts.javafxhotelbookingapp.AddRoomController">
+
+    <!-- Menu -->
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem onAction="#handleLogout" text="Logout" />
+                        <MenuItem onAction="#handleExit" text="Exit" />
+                    </items>
+                </Menu>
+                <Menu text="Help">
+                    <items>
+                        <MenuItem onAction="#handleFAQ" text="FAQs" />
+                        <MenuItem onAction="#handleUserManual" text="User Manual" />
+                        <MenuItem onAction="#handleAbout" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+
+    <center>
+        <StackPane>
+
+            <!-- Background image -->
+            <ImageView fitHeight="700.0" fitWidth="1100.0" preserveRatio="false">
+                <image>
+                    <Image url="@../../../img/hotel_background.jpg"/>
+                </image>
+            </ImageView>
+
+            <!-- Main form -->
+            <VBox alignment="CENTER" spacing="20.0"
+                  style="-fx-background-color: rgba(255,255,255,0.85); -fx-padding: 30; -fx-background-radius: 15;">
+
+                <!-- Title -->
+                <Label text="Add Room"
+                       style="-fx-text-fill: #0d2b45; -fx-font-size: 32px; -fx-font-weight: bold;">
+                    <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="28.0"/>
+                    </font>
+                </Label>
+
+                <!-- Room details -->
+                <GridPane hgap="15.0" vgap="15.0" alignment="CENTER">
+
+                    <Label text="Room Number"
+                           style="-fx-text-fill: #1f3c5b; -fx-font-size: 16px; -fx-font-weight: bold;"
+                           GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+
+                    <TextField fx:id="txtRoomNumber"
+                               prefWidth="200.0"
+                               promptText="Enter room number"
+                               style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #cfd8dc; -fx-padding: 5 10; -fx-font-size: 14px;"
+                               GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Status"
+                           style="-fx-text-fill: #1f3c5b; -fx-font-size: 16px; -fx-font-weight: bold;"
+                           GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+
+                    <TextField fx:id="txtRoomStatus"
+                               text="Available"
+                               prefWidth="200.0"
+                               style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #cfd8dc; -fx-padding: 5 10; -fx-font-size: 14px;"
+                               GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                </GridPane>
+
+                <!-- Action buttons -->
+                <HBox spacing="15.0" alignment="CENTER">
+
+                    <Button fx:id="btnSave"
+                            text="Save"
+                            onAction="#saveRoom"
+                            style="-fx-background-color: #2f80ed; -fx-text-fill: white; -fx-background-radius: 10; -fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand;"/>
+
+                    <Button fx:id="btnBack"
+                            text="Back"
+                            onAction="#goBack"
+                            style="-fx-background-color: #e0e0e0; -fx-text-fill: #333; -fx-background-radius: 10; -fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand;"/>
+
+                </HBox>
+
+                <!-- Status message -->
+                <Label fx:id="lblMessage"
+                       style="-fx-text-fill: #1f3c5b; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+            </VBox>
+
+        </StackPane>
+    </center>
+
+</BorderPane>

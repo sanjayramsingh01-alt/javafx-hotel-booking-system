@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!--
+Purpose: Staff view guests screen for the Hotel Booking System.
+Authors: Andrea Goorachan, Sanjay Ramsingh
+Version: v1.0
+Date: 2/24/2026
+-->
+
+<BorderPane prefHeight="700.0" prefWidth="1100.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.cts.javafxhotelbookingapp.StaffViewGuestsController">
+
+    <!-- Menu -->
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem onAction="#handleLogout" text="Logout" />
+                        <MenuItem onAction="#handleExit" text="Exit" />
+                    </items>
+                </Menu>
+                <Menu text="Help">
+                    <items>
+                        <MenuItem onAction="#handleFAQ" text="FAQs" />
+                        <MenuItem onAction="#handleUserManual" text="User Manual" />
+                        <MenuItem onAction="#handleAbout" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+
+    <center>
+        <StackPane>
+
+            <!-- Background image -->
+            <ImageView fitHeight="700.0" fitWidth="1100.0" preserveRatio="false">
+                <image>
+                    <Image url="@../../../img/hotel_background.jpg"/>
+                </image>
+            </ImageView>
+
+            <!-- Main view -->
+            <VBox alignment="CENTER" spacing="20.0"
+                  style="-fx-background-color: rgba(255,255,255,0.85); -fx-padding: 30; -fx-background-radius: 15;">
+
+                <!-- Title -->
+                <Label text="Staff View Guests"
+                       style="-fx-text-fill: #0d2b45; -fx-font-size: 32px; -fx-font-weight: bold;">
+                    <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="28.0" />
+                    </font>
+                </Label>
+
+                <!-- Guests table -->
+                <TableView fx:id="tblGuests" prefHeight="420.0" prefWidth="980.0"
+                           style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #cfd8dc; -fx-font-size: 14px;">
+
+                    <columns>
+                        <TableColumn fx:id="colGuestId" prefWidth="100.0" text="Guest ID" />
+                        <TableColumn fx:id="colFirstName" prefWidth="180.0" text="First Name" />
+                        <TableColumn fx:id="colLastName" prefWidth="180.0" text="Last Name" />
+                        <TableColumn fx:id="colEmail" prefWidth="220.0" text="Email" />
+                        <TableColumn fx:id="colPhone" prefWidth="160.0" text="Phone" />
+                    </columns>
+                </TableView>
+
+                <!-- Message label -->
+                <Label fx:id="lblMessage"
+                       style="-fx-text-fill: #1f3c5b; -fx-font-size: 14px; -fx-font-weight: bold;" />
+
+                <!-- Back button -->
+                <HBox alignment="CENTER" spacing="15.0">
+                    <Button fx:id="btnBack"
+                            onAction="#goBack"
+                            prefHeight="40.0" prefWidth="100.0"
+                            text="Back"
+                            style="-fx-background-color: #e0e0e0; -fx-text-fill: #333333; -fx-background-radius: 10; -fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand;">
+                        <font>
+                            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+                        </font>
+                    </Button>
+                </HBox>
+
+            </VBox>
+
+        </StackPane>
+    </center>
+
+</BorderPane>

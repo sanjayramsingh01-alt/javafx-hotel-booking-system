@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!--
+Purpose: Guest dashboard screen for the Hotel Booking System.
+Authors: Andrea Goorachan, Sanjay Ramsingh
+Version: v1.0
+Date: 2/24/2026
+-->
+
+<BorderPane prefHeight="700.0" prefWidth="1100.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.cts.javafxhotelbookingapp.GuestDashboardController">
+
+    <!-- Menu -->
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem onAction="#handleLogout" text="Logout" />
+                        <MenuItem onAction="#handleExit" text="Exit" />
+                    </items>
+                </Menu>
+
+                <Menu text="Help">
+                    <items>
+                        <MenuItem onAction="#handleFAQ" text="FAQs" />
+                        <MenuItem onAction="#handleUserManual" text="User Manual" />
+                        <MenuItem onAction="#handleAbout" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+
+    <center>
+        <StackPane>
+
+            <!-- Background Image -->
+            <ImageView fitHeight="700.0" fitWidth="1100.0" preserveRatio="false">
+                <image>
+                    <Image url="@../../../img/hotel_background.jpg" />
+                </image>
+            </ImageView>
+
+            <!-- Main Dashboard -->
+            <VBox alignment="CENTER"
+                  spacing="30.0"
+                  style="-fx-background-color: rgba(255,255,255,0.85); -fx-padding: 40; -fx-background-radius: 15;">
+
+                <!-- Title -->
+                <Label text="Guest Dashboard"
+                       style="-fx-text-fill: #0d2b45; -fx-font-size: 32px; -fx-font-weight: bold;">
+                    <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="28.0" />
+                    </font>
+                </Label>
+
+                <!-- Navigation Buttons -->
+                <GridPane alignment="CENTER" hgap="25.0" vgap="25.0">
+
+                    <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                    </columnConstraints>
+
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+
+                    <Button fx:id="btnProfile"
+                            onAction="#openProfile"
+                            prefHeight="55.0"
+                            prefWidth="220.0"
+                            style="-fx-background-color: #2f80ed; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-size: 15px; -fx-font-weight: bold; -fx-cursor: hand;"
+                            text="Guest Profile"
+                            GridPane.columnIndex="0"
+                            GridPane.rowIndex="0" />
+
+                    <Button fx:id="btnViewRooms"
+                            onAction="#openViewRooms"
+                            prefHeight="55.0"
+                            prefWidth="220.0"
+                            style="-fx-background-color: #2f80ed; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-size: 15px; -fx-font-weight: bold; -fx-cursor: hand;"
+                            text="View Rooms"
+                            GridPane.columnIndex="1"
+                            GridPane.rowIndex="0" />
+
+                    <Button fx:id="btnBooking"
+                            onAction="#openMakeBooking"
+                            prefHeight="55.0"
+                            prefWidth="220.0"
+                            style="-fx-background-color: #2f80ed; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-size: 15px; -fx-font-weight: bold; -fx-cursor: hand;"
+                            text="Make Booking"
+                            GridPane.columnIndex="0"
+                            GridPane.rowIndex="1" />
+
+                    <Button fx:id="btnViewBooking"
+                            onAction="#openViewBooking"
+                            prefHeight="55.0"
+                            prefWidth="220.0"
+                            style="-fx-background-color: #2f80ed; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-size: 15px; -fx-font-weight: bold; -fx-cursor: hand;"
+                            text="View Booking"
+                            GridPane.columnIndex="1"
+                            GridPane.rowIndex="1" />
+
+                </GridPane>
+
+                <!-- Logout Button -->
+                <Button fx:id="btnLogout"
+                        onAction="#logout"
+                        prefHeight="50.0"
+                        prefWidth="200.0"
+                        style="-fx-background-color: #d9534f; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-size: 15px; -fx-font-weight: bold; -fx-cursor: hand;"
+                        text="Logout" />
+
+            </VBox>
+
+        </StackPane>
+    </center>
+
+</BorderPane>

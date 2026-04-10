@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!--
+Purpose: Login screen for the Hotel Booking System.
+Authors: Andrea Goorachan, Sanjay Ramsingh
+Version: v1.0
+Date: 2/24/2026
+-->
+
+<BorderPane prefHeight="700.0" prefWidth="1100.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.cts.javafxhotelbookingapp.LoginController">
+
+    <center>
+        <AnchorPane prefHeight="700.0" prefWidth="1100.0">
+
+            <!-- Background Image -->
+            <ImageView fitHeight="700.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="false"
+                       AnchorPane.bottomAnchor="0.0"
+                       AnchorPane.leftAnchor="0.0"
+                       AnchorPane.rightAnchor="0.0"
+                       AnchorPane.topAnchor="0.0">
+                <image>
+                    <Image url="@../../../img/RG_Background.jpg" />
+                </image>
+            </ImageView>
+
+            <!-- Main Layout -->
+            <VBox alignment="TOP_CENTER" spacing="22.0"
+                  AnchorPane.bottomAnchor="0.0"
+                  AnchorPane.leftAnchor="0.0"
+                  AnchorPane.rightAnchor="0.0"
+                  AnchorPane.topAnchor="0.0">
+
+                <padding>
+                    <Insets top="55.0" right="0.0" bottom="0.0" left="0.0" />
+                </padding>
+
+                <!-- Logo -->
+                <ImageView fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../img/RG_Hotel_Logo.jpg" />
+                    </image>
+                </ImageView>
+
+                <!-- Login Form -->
+                <GridPane alignment="CENTER" hgap="18.0" vgap="18.0" maxWidth="560.0" prefWidth="560.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" minWidth="130.0" prefWidth="160.0" />
+                        <ColumnConstraints halignment="LEFT" minWidth="280.0" prefWidth="350.0" />
+                    </columnConstraints>
+
+                    <rowConstraints>
+                        <RowConstraints prefHeight="55.0" />
+                        <RowConstraints prefHeight="55.0" />
+                        <RowConstraints prefHeight="55.0" />
+                    </rowConstraints>
+
+                    <Label text="Username" textFill="#244a73" GridPane.halignment="RIGHT">
+                        <font>
+                            <Font name="System Bold" size="24.0" />
+                        </font>
+                    </Label>
+
+                    <TextField fx:id="tBoxUsername"
+                               prefHeight="45.0"
+                               prefWidth="340.0"
+                               promptText="Username"
+                               GridPane.columnIndex="1">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </TextField>
+
+                    <Label text="Password" textFill="#244a73" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                        <font>
+                            <Font name="System Bold" size="24.0" />
+                        </font>
+                    </Label>
+
+                    <PasswordField fx:id="tBoxPassword"
+                                   prefHeight="45.0"
+                                   prefWidth="340.0"
+                                   promptText="Password"
+                                   GridPane.columnIndex="1"
+                                   GridPane.rowIndex="1">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </PasswordField>
+
+                    <Label text="Role" textFill="#244a73" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                        <font>
+                            <Font name="System Bold" size="24.0" />
+                        </font>
+                    </Label>
+
+                    <ComboBox fx:id="cBoxRole"
+                              prefHeight="45.0"
+                              prefWidth="340.0"
+                              promptText="Select user role"
+                              GridPane.columnIndex="1"
+                              GridPane.rowIndex="2">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Guest" />
+                                <String fx:value="Staff" />
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                </GridPane>
+
+                <!-- Message Label -->
+                <Label fx:id="lblWrongLogin" textFill="RED">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+
+                <!-- Buttons and Register Link -->
+                <VBox alignment="CENTER" spacing="18.0">
+                    <GridPane alignment="CENTER" hgap="25.0">
+                        <columnConstraints>
+                            <ColumnConstraints halignment="CENTER" />
+                            <ColumnConstraints halignment="CENTER" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                        </rowConstraints>
+
+                        <Button fx:id="btnLogin"
+                                mnemonicParsing="false"
+                                onAction="#userLogin"
+                                prefHeight="42.0"
+                                prefWidth="120.0"
+                                text="Login"
+                                GridPane.columnIndex="0">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Button>
+
+                        <Button fx:id="btnReset"
+                                mnemonicParsing="false"
+                                onAction="#reset"
+                                prefHeight="42.0"
+                                prefWidth="120.0"
+                                text="Reset"
+                                GridPane.columnIndex="1">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Button>
+                    </GridPane>
+
+                    <Hyperlink fx:id="lblRegister"
+                               focusTraversable="false"
+                               onAction="#registerUser"
+                               text="Not Registered... Click here to Register!"
+                               textFill="#3d6f9d">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Hyperlink>
+                </VBox>
+
+            </VBox>
+        </AnchorPane>
+    </center>
+
+</BorderPane>
